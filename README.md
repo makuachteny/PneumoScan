@@ -38,11 +38,11 @@ Both models were evaluated on the test set using standard evaluation metrics:
 ## Results
 
 - **Baseline Model**:
-  - Test Accuracy: ~75.00%
+  - Test Accuracy: ~87.80%
   - Performance: Moderate precision, recall, and F1-score.
   
 - **Optimized CNN Model**:
-  - Test Accuracy: ~85.00%
+  - Test Accuracy: ~94.67%
   - Performance: Higher precision, recall, and F1-score compared to the baseline model.
 
 ## Conclusion
