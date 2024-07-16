@@ -79,9 +79,9 @@ I have saved the models in the saved_models folder as  (`optimized_model.keras` 
    from keras.models import load_model
 
    # Load the optimized CNN model
-   optimized_model = load_model('optimized.keras')
+   optimized_model = load_model('optimized_model.keras')
 
    # Load the simple model
-   simple_model = load_model('simple.keras')
+   simple_model = load_model('simple_model.keras')
 
 Feel free to adjust parameters, explore different architectures, or use different datasets for further experimentation and improvement.
