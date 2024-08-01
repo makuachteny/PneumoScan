@@ -12,12 +12,18 @@ model = load_model('models/optimized_model.keras')
 
 img_size = 150
 
+
 def preprocess_image(image_bytes):
     img_arr = np.frombuffer(image_bytes, np.uint8)
     img = cv2.imdecode(img_arr, cv2.IMREAD_GRAYSCALE)
     resized_img = cv2.resize(img, (img_size, img_size))
     normalized_img = resized_img / 255.0
     return normalized_img.reshape(-1, img_size, img_size, 1)
+
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the API"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
