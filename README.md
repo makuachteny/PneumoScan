@@ -1,87 +1,104 @@
-# Pneumonia Detection from Chest X-ray Images using Convolutional Neural Networks (CNNs)
+# PneumoScan: Pneumonia Detection Model
 
-This project aims to develop a deep learning model to automate the classification of chest X-ray images into normal and pneumonia-affected classes using Convolutional Neural Networks (CNNs). The models are trained on a publicly available dataset of chest X-ray images and evaluated based on their accuracy and other performance metrics.
+## Project Overview
 
-## Objective
+This project involves building a machine learning model to classify whether a patient has pneumonia based on chest X-ray images. The project includes model training, deployment, API creation for prediction, and integration with a React application (scap_app).
 
-The primary goal of this project is to build and compare two models:
-1. **Baseline Model**: A simple neural network without advanced optimizations.
-2. **Optimized CNN Model**: A CNN model enhanced with data augmentation, multiple convolutional layers, pooling layers, dropout, and other optimization techniques.
+## Features
 
-## Dataset
+- Model Training: Developed a convolutional neural network (CNN) model to classify pneumonia using chest X-ray images.
+- Model Deployment: Saved and loaded the trained model into a new environment.
+- API Creation: Built an API using FastAPI to handle predictions.
+- React Integration: Linked the FastAPI API to a React frontend (scap_app) for an interactive user experience.
 
-The dataset consists of 5,863 high-quality chest X-ray images, categorized into two classes: normal and pneumonia-affected. It is divided into training, validation, and test sets to facilitate model development and evaluation.
+## How to start the app
 
-## Models Implemented
+### SetUp
 
-### 1. Baseline Model (Simple Neural Network)
-- Input Layer: Flattened input images (150x150x1).
-- Architecture: Dense layers with ReLU activation.
-- Training: Adam optimizer, binary cross-entropy loss.
+- Install python
 
-### 2. Optimized CNN Model
-- Architecture:
-  - Conv2D layers with ReLU activation.
-  - MaxPool2D layers for downsampling.
-  - Dropout layers for regularization.
-- Training: Adam optimizer, binary cross-entropy loss, with data augmentation.
+- Clone the Repository
+sh
+Copy code
+`` git clone https://github.com/your-username/pneumoscan.git ``
 
-## Evaluation
+``cd pneumoscan``
 
-Both models were evaluated on the test set using standard evaluation metrics:
+- Install Dependencies
+``pip install -r requirements.txt``
 
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
+- Model Training
+- Train the Model
 
-## Results
+``python src/model.py``
 
-- **Baseline Model**:
-  - Test Accuracy: ~87.80%
-  - Performance: Moderate precision, recall, and F1-score.
-  
-- **Optimized CNN Model**:
-  - Test Accuracy: ~94.67%
-  - Performance: Higher precision, recall, and F1-score compared to the baseline model.
+- Save the Model
+The trained model will be saved as ``optimized_model.keras`` in the models directory.
 
-## Conclusion
+- Model Deployment
+Load the Model into a New Environment
+sh
 
-The optimized CNN model outperformed the baseline model, demonstrating the effectiveness of CNNs and optimization techniques in pneumonia detection from chest X-ray images. This project highlights the importance of model architecture, data preprocessing, and augmentation in improving classification accuracy and robustness.
+`` python src/import_model.py ``
 
-## Future Enhancements
+Launch the API
+The API is implemented using FastAPI. To start the API server, run:
 
-- Fine-tuning hyperparameters for better performance.
-- Implementing transfer learning with pre-trained models.
-- Exploring advanced architectures like ResNet or DenseNet.
+``uvicorn src.app:app --host 127.0.0.1 --port 8000 --reload``
+The API will be accessible at http://127.0.0.1:8000.
 
-## Libraries Used
+### React Application
 
-- Python
-- Keras
-- TensorFlow
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Scikit-learn
+- Start the React App
+Make sure you have the scap_app React application set up correctly. Follow the setup instructions provided in the ``scap_app`` repository to run the React application.
 
-## How to Use the Saved Models
+### API Endpoints
 
-I have saved the models in the saved_models folder as  (`optimized_model.keras` and `simple_model.keras`), you can load them for making predictions on new data or further evaluation.
+- Predict: /predict
+- Method: POST
+- Request Body: JSON containing the path to the chest X-ray image
+- Response: Prediction result indicating the presence of pneumonia
+Example Request:
 
-### Loading and Using the Models
+``{
+    "image_path": "path/to/xray/image.jpg"
+}
+``
 
-1. **Load the Models**: Load the saved models using Keras.
+### Usage
 
-   ```python
-   from keras.models import load_model
+Predict Pneumonia
+Use the React app or send a POST request to the /predict endpoint with the image path to receive a pneumonia prediction.
 
-   # Load the optimized CNN model
-   optimized_model = load_model('optimized_model.keras')
+Directory Structure
+bash
+Copy code
+PneumoScan/
+├── data/
+│   ├── train/
+│   ├── test/
+|   └── val/
+├── models/
+|   └── optimized_model.keras
+|
+├── notebook/
+│   └── PneumoScan.ipynb
+├── Scan_app/
+│   ├── Chest-xray-server
+|   ├── node_modules
+|   ├── public
+|   ├── src/
+|
+├── src/
+│   ├── preprocessing.py
+│   ├── model.py
+│   ├── prediction.py
+│   └── app.py
+├── data/
+│   ├── train/
+|    └── test/
 
-   # Load the simple model
-   simple_model = load_model('simple_model.keras')
 
-Feel free to adjust parameters, explore different architectures, or use different datasets for further experimentation and improvement.
+### Conclusion
+
+PneumoScan demonstrates a complete MLOps workflow, from model development to deployment and integration with a web interface. This project provides a practical example of deploying a machine learning model in a real-world application, specifically for medical imaging and diagnosis. By following the outlined steps, you can recreate and extend this project for similar use cases.
