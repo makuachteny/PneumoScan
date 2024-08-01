@@ -72,6 +72,7 @@ Use the React app or send a POST request to the /predict endpoint with the image
 
 - Directory Structure
 
+```text
 PneumoScan/
 ├── data/
 │   ├── train/
@@ -91,7 +92,7 @@ PneumoScan/
 │   ├── model.py
 │   ├── prediction.py
 │   └── app.py
-
+```
 
 ### Demo
 
