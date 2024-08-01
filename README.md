@@ -97,7 +97,8 @@ PneumoScan/
 ### Demo
 
 - A video demonstration of the application
-[You can view the video [here](demo/[https://www.youtube.com/watch?v=2yEq8LCStvc])
+[![Video Thumbnail](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=2yEq8LCStvc)
+
 
 ### Conclusion
 
