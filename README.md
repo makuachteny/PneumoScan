@@ -98,6 +98,10 @@ PneumoScan/
 │   ├── train/
 |    └── test/
 
+### Demo
+
+- A video demonstration of the application
+[Watch the Demo](../PneumoScan/Recording/video1980679042.mp4)
 
 ### Conclusion
 
