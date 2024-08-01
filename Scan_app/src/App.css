@@ -1,0 +1,152 @@
+/* ChestXRayUI.css */
+.chest-xray-app {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #f8fafc;
+}
+
+.card {
+  background-color: #2d3748;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.upload-area {
+  border: 2px dashed #4a5568;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #60a5fa;
+}
+
+.upload-text {
+  font-size: 0.875rem;
+  color: #a0aec0;
+  margin-bottom: 1rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #2563eb;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.image-item {
+  background-color: #4a5568;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+}
+
+.x-ray-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-count {
+  font-size: 0.875rem;
+  color: #a0aec0;
+  margin-top: 1rem;
+}
+
+.prediction-card {
+  background-color: #2d3748;
+  border-left: 4px solid #3b82f6;
+}
+
+/* Add this to your existing ChestXRayUI.css file */
+
+.category-toggle {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.toggle-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.toggle-button:hover {
+  background-color: #2563eb;
+}
+
+/* You might want to adjust the image-grid for better responsiveness */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.image-item {
+  aspect-ratio: 1 / 1;
+  /* This ensures the items remain square */
+}
+
+.x-ray-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
