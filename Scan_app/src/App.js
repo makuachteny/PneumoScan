@@ -62,7 +62,7 @@ const ChestXRayUI = () => {
   return (
     <div className="chest-xray-app">
       <div className="container">
-        <h1 className="title">Chest X-Rays Computer Vision Project</h1>
+        <h1 className="title">PneumoScan: Chest X-Rays Analyst</h1>
 
         <div className="card upload-card">
           <h2 className="card-title">Try This Model</h2>
