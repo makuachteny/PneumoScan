@@ -22,7 +22,7 @@ def preprocess_image(image_bytes):
 
 
 @app.get("/")
-async def read_root():
+async def root():
     return {"message": "Welcome to the API"}
 
 @app.post("/predict")
