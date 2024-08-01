@@ -70,38 +70,33 @@ Example Request:
 Predict Pneumonia
 Use the React app or send a POST request to the /predict endpoint with the image path to receive a pneumonia prediction.
 
-Directory Structure
-bash
-Copy code
+- Directory Structure
+
 PneumoScan/
 ├── data/
 │   ├── train/
 │   ├── test/
-|   └── val/
+│   └── val/
 ├── models/
-|   └── optimized_model.keras
-|
+│   └── optimized_model.keras
 ├── notebook/
 │   └── PneumoScan.ipynb
 ├── Scan_app/
-│   ├── Chest-xray-server
-|   ├── node_modules
-|   ├── public
-|   ├── src/
-|
+│   ├── Chest-xray-server/
+│   ├── node_modules/
+│   ├── public/
+│   └── src/
 ├── src/
 │   ├── preprocessing.py
 │   ├── model.py
 │   ├── prediction.py
 │   └── app.py
-├── data/
-│   ├── train/
-|    └── test/
+
 
 ### Demo
 
 - A video demonstration of the application
-[Watch the Demo](../PneumoScan/Recording/video1980679042.mp4)
+[Watch the Demo](../PneumoScan/Demo/video1980679042.mp4)
 
 ### Conclusion
 
