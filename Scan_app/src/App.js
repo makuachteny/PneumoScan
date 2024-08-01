@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ChestXRayUI.css";
-
-const API_URL = "http://localhost:3001";
+import "./App.css";
 
 const ChestXRayUI = () => {
   const [normalImages, setNormalImages] = useState([]);
@@ -10,22 +8,25 @@ const ChestXRayUI = () => {
   const [prediction, setPrediction] = useState(null);
 
   useEffect(() => {
+    // Fetch images when the component mounts
     fetchImages("normal");
     fetchImages("pneumonia");
   }, []);
 
   const fetchImages = async (category) => {
     try {
-      const response = await fetch(`${API_URL}/api/images/${category}`);
-      const imageFiles = await response.json();
-      const imageUrls = imageFiles.map(
-        (file) => `${API_URL}/images/${category}/${file}`
+      // In a real-world scenario, you'd fetch this list from your server
+      // For now, we'll simulate it with a fixed number of images
+      const imageCount = category === "normal" ? 50 : 50; // Adjust these numbers based on your actual image count
+      const images = Array.from(
+        { length: imageCount },
+        (_, i) => `/data/train/${category}/${i + 1}.jpeg`
       );
 
       if (category === "normal") {
-        setNormalImages(imageUrls);
+        setNormalImages(images);
       } else {
-        setPneumoniaImages(imageUrls);
+        setPneumoniaImages(images);
       }
     } catch (error) {
       console.error(`Error fetching ${category} images:`, error);
@@ -35,8 +36,8 @@ const ChestXRayUI = () => {
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     console.log("Image uploaded:", file);
-    // TODO: Implement actual image upload to server
-    // For now, we'll just simulate adding the image locally
+    // Implement your actual image upload and prediction logic here
+    // For now, we'll just add the uploaded image to the current category
     const newImage = URL.createObjectURL(file);
     if (activeCategory === "normal") {
       setNormalImages((prev) => [newImage, ...prev]);
@@ -65,8 +66,39 @@ const ChestXRayUI = () => {
       <div className="container">
         <h1 className="title">Chest X-Rays Computer Vision Project</h1>
 
-        {/* ... (rest of the JSX remains the same) ... */}
+        <div className="card upload-card">
+          <h2 className="card-title">Try This Model</h2>
+          <div className="upload-area">
+            <p className="upload-text">Drop an image or browse your device</p>
+            <input
+              type="file"
+              onChange={handleImageUpload}
+              accept="image/*"
+              id="image-upload"
+              className="file-input"
+            />
+            <label htmlFor="image-upload" className="upload-button">
+              Browse
+            </label>
+          </div>
+        </div>
 
+        {prediction && (
+          <div className="card prediction-card">
+            <h2 className="card-title">Prediction Result</h2>
+            <p>{prediction}</p>
+          </div>
+        )}
+
+        <div className="category-toggle">
+          <button onClick={toggleCategory} className="toggle-button">
+            {activeCategory === "normal" ? "Show Pneumonia" : "Show Normal"}
+          </button>
+        </div>
+
+        <h2 className="section-title">
+          {activeCategory === "normal" ? "Normal" : "Pneumonia"} Images
+        </h2>
         <div className="image-grid">
           {activeImages.map((image, index) => (
             <div key={index} className="image-item">
