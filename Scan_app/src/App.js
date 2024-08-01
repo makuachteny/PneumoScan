@@ -15,9 +15,7 @@ const ChestXRayUI = () => {
 
   const fetchImages = async (category) => {
     try {
-      // In a real-world scenario, you'd fetch this list from your server
-      // For now, we'll simulate it with a fixed number of images
-      const imageCount = category === "normal" ? 50 : 50; // Adjust these numbers based on your actual image count
+      const imageCount = category === "normal" ? 50 : 50; 
       const images = Array.from(
         { length: imageCount },
         (_, i) => `/data/train/${category}/${i + 1}.jpeg`
