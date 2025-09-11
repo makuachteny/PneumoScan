@@ -101,5 +101,4 @@ PneumoScan/
 
 
 ### Conclusion
-
 PneumoScan demonstrates a complete MLOps workflow, from model development to deployment and integration with a web interface. This project provides a practical example of deploying a machine learning model in a real-world application, specifically for medical imaging and diagnosis. By following the outlined steps, you can recreate and extend this project for similar use cases.
